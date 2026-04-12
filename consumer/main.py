@@ -5,6 +5,7 @@ import json
 consumer = KafkaConsumer(
     "mlb-games",
     bootstrap_servers=['kafka:9092'],
+    group_id='mlb-ml-group',
     value_deserializer=lambda m: json.loads(m.decode('utf-8')),
     api_version=(2, 5, 0)
 )
